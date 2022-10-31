@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mã hóa tổng hợp</title>
+    <!-- <script src="final.js"></script> -->
+
+    <link rel="stylesheet" href="../final.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="test.js"></script>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container-final">
+      <div class="nav-final">
+        <div class="nav-list">
+          <ul>
+            <li>
+              <a href="..\Caesar-cipher-js\index.html">Caesar</a>
+            </li>
+            <li>
+              <a href="..\vigenere-cipher\index.html">Vigenere</a>
+            </li>
+            <li>
+              <a href="..\playfair-cipher\index.html">Playfair</a>
+            </li>
+            <li>
+              <a href="..\railfence-cipher\index.html">Railfence</a>
+            </li>
+            <li>
+              <a href="..\row-column-transposition-cipher\index.html"
+                >Row-column</a
+              >
+            </li>
+            <li style="background-color: teal">
+              <a style="color: #fff" href="..\DES-cipher\index.html">DES</a>
+            </li>
+            <li>
+              <a href="..\RSA-Cipher\index.html">RSA</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="Encrypt">
+        <div class="card input-plain-text">
+          <div class="card-body">
+            <table>
+              <tr>
+                <td>Plain Text</td>
+                <td class="relay">
+                  <div class="tabs">
+                    <div
+                      class="tab-item active"
+                      onclick="openInputEncrypt(event,'input_plain_text','input-encrypt','tab-item')"
+                    >
+                      Text (unicode)
+                    </div>
+                    <div
+                      class="tab-item"
+                      onclick="openInputEncrypt(event,'input_plain_text_binary','input-encrypt','tab-item')"
+                    >
+                      Binary
+                    </div>
+                    <div
+                      class="tab-item"
+                      onclick="openInputEncrypt(event,'input_plain_text_hex','input-encrypt','tab-item')"
+                    >
+                      Hex
+                    </div>
+                  </div>
+                  <textarea
+                    class="input-encrypt"
+                    id="input_plain_text"
+                    placeholder="Input text (unicode)... "
+                    cols="80"
+                    rows="5"
+                  ></textarea>
+
+                  <textarea
+                    class="input-encrypt"
+                    id="input_plain_text_binary"
+                    placeholder="Input Binary... "
+                    cols="80"
+                    rows="5"
+                    onkeypress="inputValidBin(event)"
+                    style="display: none"
+                  ></textarea>
+
+                  <textarea
+                    class="input-encrypt"
+                    id="input_plain_text_hex"
+                    placeholder="Input Hex... "
+                    cols="80"
+                    rows="5"
+                    onkeypress="inputValidHex(event)"
+                    style="display: none"
+                  ></textarea>
+                </td>
+              </tr>
+              <tr>
+                <td>Key</td>
+                <td>
+                  <input
+                    style="width: 400px"
+                    type="text"
+                    id="key_encrypt"
+                    onkeypress="pressEnterEncrypt(event, true)"
+                  />
+                  <button class="btn-generate-key" onclick="generateKey()">
+                    Generate key
+                  </button>
+                  <div class="file">
+                    <label for="file"><img src="./doc.ico" alt="" /></label>
+                    <input
+                      id="file"
+                      type="file"
+                      hidden="true"
+                      onchange="changeHandlerEncrypt(event) "
+                    />
+                  </div>
+                </td>
+              </tr>
+
+              <tr>
+                <td colspan="2" class="button">
+                  <button
+                    type="button"
+                    class="btn btn-primary btn-lg"
+                    onclick="encrypt()"
+                  >
+                    Encrypt
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-primary btn-lg"
+                    onclick="saveFileEncrypt()"
+                  >
+                    Save Encrypt
+                  </button>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div id="matrixEncrypt"></div>
+        <div class="card text-center result">
+          <div class="card-body">
+            <h2 class="card-title" id="result_title">Cipher Text:</h2>
+            <div class="tabs-result">
+              <div
+                class="tab-item-result active"
+                onclick="resultInputEncrypt(event,'cipher_text','card-text','tab-item-result')"
+              >
+                Base64
+              </div>
+              <div
+                class="tab-item-result"
+                onclick="resultInputEncrypt(event,'cipher_text_binary','card-text','tab-item-result')"
+              >
+                Binary
+              </div>
+              <div
+                class="tab-item-result"
+                onclick="resultInputEncrypt(event,'cipher_text_hex','card-text','tab-item-result')"
+              >
+                Hex
+              </div>
+            </div>
+            <p class="card-text" id="cipher_text">Result Base64</p>
+            <p class="card-text" id="cipher_text_binary" style="display: none">
+              Result Binary
+            </p>
+            <p class="card-text" id="cipher_text_hex" style="display: none">
+              Result Hex
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="Decrypt">
+        <div class="card input-cipher-text">
+          <div class="card-body">
+            <table>
+              <tr>
+                <td>Cipher Text</td>
+                <td class="relay-de">
+                  <div class="tabs-decrypt">
+                    <div
+                      class="tab-item-dec active"
+                      onclick="openInputEncrypt(event,'input_cipher_text','input-decrypt','tab-item-dec')"
+                    >
+                      Base64
+                    </div>
+                    <div
+                      class="tab-item-dec"
+                      onclick="openInputEncrypt(event,'input_cipher_text_binary','input-decrypt','tab-item-dec')"
+                    >
+                      Binary
+                    </div>
+                    <div
+                      class="tab-item-dec"
+                      onclick="openInputEncrypt(event,'input_cipher_text_hex','input-decrypt','tab-item-dec')"
+                    >
+                      Hex
+                    </div>
+                  </div>
+                  <textarea
+                    class="input-decrypt"
+                    id="input_cipher_text"
+                    placeholder="Input Base64... "
+                    cols="80"
+                    onkeypress="inputValidBase64(event)"
+                    rows="5"
+                  ></textarea>
+
+                  <textarea
+                    class="input-decrypt"
+                    id="input_cipher_text_binary"
+                    placeholder="Input Binary... "
+                    cols="80"
+                    onkeypress="inputValidBin(event)"
+                    rows="5"
+                    style="display: none"
+                  ></textarea>
+
+                  <textarea
+                    class="input-decrypt"
+                    id="input_cipher_text_hex"
+                    placeholder="Input Hex... "
+                    cols="80"
+                    onkeypress="inputValidHex(event)"
+                    rows="5"
+                    style="display: none"
+                  ></textarea>
+                </td>
+              </tr>
+              <tr>
+                <td>Key</td>
+                <td>
+                  <input
+                    style="width: 400px"
+                    type="text"
+                    id="key_decrypt"
+                    onkeypress="pressEnterEncrypt(event, true)"
+                  />
+                  <button class="btn-generate-key" onclick="generateKey(false)">
+                    Generate key
+                  </button>
+                  <div class="file">
+                    <label for="file"><img src="./doc.ico" alt="" /></label>
+                    <input
+                      type="file"
+                      hidden="true"
+                      onchange="changeHandlerDecrypt(event)"
+                    />
+                  </div>
+                </td>
+              </tr>
+
+              <tr>
+                <td colspan="2" class="button">
+                  <button
+                    type="button"
+                    class="btn btn-primary btn-lg"
+                    onclick="decrypt()"
+                  >
+                    Decrypt
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-primary btn-lg"
+                    onclick="saveFileDecrypt()"
+                  >
+                    Save Decrypt
+                  </button>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div id="matrixDecrypt"></div>
+        <div class="card text-center result">
+          <div class="card-body">
+            <h2 class="card-title" id="result2_title">Plain Text:</h2>
+
+            <div class="tabs-result-pl">
+              <div
+                class="tab-item-result-pl active"
+                onclick="resultInputEncrypt(event,'plain_text-pl','card-text-pl','tab-item-result-pl')"
+              >
+                Text (unicode)
+              </div>
+              <div
+                class="tab-item-result-pl"
+                onclick="resultInputEncrypt(event,'plain_text_binary-pl','card-text-pl','tab-item-result-pl')"
+              >
+                Binary
+              </div>
+              <div
+                class="tab-item-result-pl"
+                onclick="resultInputEncrypt(event,'plain_text_hex-pl','card-text-pl','tab-item-result-pl')"
+              >
+                Hex
+              </div>
+            </div>
+
+            <p class="card-text-pl" id="plain_text-pl">Result Unicode</p>
+            <p
+              class="card-text-pl"
+              id="plain_text_binary-pl"
+              style="display: none"
+            >
+              Result Binary
+            </p>
+            <p
+              class="card-text-pl"
+              id="plain_text_hex-pl"
+              style="display: none"
+            >
+              Result Hex
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="snackbar">Keyword Invalid!</div>
+    <script src="main.js"></script>
+  </body>
+</html>

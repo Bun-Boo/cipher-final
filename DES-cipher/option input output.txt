@@ -1,0 +1,19 @@
+input plaintext option:
+- Text(unicode)
+- binary 
+- hex 
+
+output ciphertext option:
+- Base64 
+- binary 
+- hex 
+
+input ciphertext option:
+same output
+
+output plaintext option:
+same input
+
+
+
+css lại button generateKey

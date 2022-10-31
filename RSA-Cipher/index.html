@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mã hóa tổng hợp</title>
+    <!-- <script src="final.js"></script> -->
+
+    <link rel="stylesheet" href="../final.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="main.js"></script>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container-final">
+      <div class="nav-final">
+        <div class="nav-list">
+          <ul>
+            <li>
+              <a href="..\Caesar-cipher-js\index.html">Caesar</a>
+            </li>
+            <li>
+              <a href="..\vigenere-cipher\index.html">Vigenere</a>
+            </li>
+            <li>
+              <a href="..\playfair-cipher\index.html">Playfair</a>
+            </li>
+            <li>
+              <a href="..\railfence-cipher\index.html">Railfence</a>
+            </li>
+            <li>
+              <a href="..\row-column-transposition-cipher\index.html"
+                >Row-column</a
+              >
+            </li>
+            <li>
+              <a href="..\DES-cipher\index.html">DES</a>
+            </li>
+            <li style="background-color: teal">
+              <a style="color: #fff" href="..\RSA-Cipher\index.html">RSA</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="container-RSA">
+      <h1>MÃ HÓA RSA</h1>
+      <div class="container">
+        <div class="container-input">
+          <div class="input-RSA">
+            <div class="input">
+              <span>P</span>
+              <input
+                type="number"
+                name=""
+                id="input_p"
+                onchange="onChange()"
+                onkeypress="inputValidNumber()"
+              />
+            </div>
+            <div class="input">
+              <span>Q</span>
+              <input
+                type="number"
+                name=""
+                id="input_q"
+                onchange="onChange()"
+                onkeypress="inputValidNumber()"
+              />
+            </div>
+            <div class="input">
+              <span>E</span>
+              <input
+                type="number"
+                name=""
+                id="input_e"
+                onchange="onChange()"
+                onkeypress="inputValidNumber()"
+              />
+            </div>
+            <div class="input">
+              <button class="gene" onclick="generate()">Generate</button>
+            </div>
+          </div>
+          <div class="arrow">
+            <span>=></span>
+          </div>
+          <div class="key-RSA">
+            <div class="key">
+              <span>KUA</span>
+              <input type="text" id="input_kua" disabled />
+            </div>
+            <div class="key">
+              <span>KRA</span>
+              <input type="text" id="input_kra" disabled />
+            </div>
+          </div>
+        </div>
+        <div class="text-RSA">
+          <div class="text">
+            <span>M</span>
+            <input type="number" id="input_m" onkeypress="inputValidNumber()" />
+          </div>
+          <div class="text">
+            <span>C</span>
+            <input type="number" id="input_c" onkeypress="inputValidNumber()" />
+          </div>
+        </div>
+        <div class="output-RSA">
+          <div class="encrypt-RSA">
+            <button onclick="encrypt()">Encrypt</button>
+            <span id="output-encrypt">Output ma hoa</span>
+          </div>
+          <div class="encrypt-RSA">
+            <button onclick="decrypt()">Decrypt</button>
+            <span id="output-decrypt">Output ma hoa</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="snackbar">Keyword Invalid!</div>
+  </body>
+</html>

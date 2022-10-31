@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mã hóa tổng hợp</title>
+    <!-- <script src="final.js"></script> -->
+
+    <link rel="stylesheet" href="../final.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="test.js"></script>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container-final">
+      <div class="nav-final">
+        <div class="nav-list">
+          <ul>
+            <li>
+              <a href="..\Caesar-cipher-js\index.html">Caesar</a>
+            </li>
+            <li>
+              <a href="..\vigenere-cipher\index.html">Vigenere</a>
+            </li>
+            <li>
+              <a href="..\playfair-cipher\index.html">Playfair</a>
+            </li>
+            <li style="background-color: teal">
+              <a style="color: #fff" href="..\railfence-cipher\index.html"
+                >Railfence</a
+              >
+            </li>
+            <li>
+              <a href="..\row-column-transposition-cipher\index.html"
+                >Row-column</a
+              >
+            </li>
+            <li>
+              <a href="..\DES-cipher\index.html">DES</a>
+            </li>
+            <li>
+              <a href="..\RSA-Cipher\index.html">RSA</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="Encrypt">
+        <div class="card input-plain-text">
+          <div class="card-body">
+            <table>
+              <tr>
+                <td>Plain Text</td>
+                <td>
+                  <textarea id="input_plain_text" cols="80" rows="5"></textarea>
+                </td>
+              </tr>
+              <tr>
+                <td>Key</td>
+                <td>
+                  <input
+                    type="number"
+                    id="key_encrypt"
+                    onkeypress="pressEnterEncrypt(event, true)"
+                  />
+                  <div class="file">
+                    <label for="file"><img src="./doc.ico" alt="" /></label>
+                    <input
+                      id="file"
+                      type="file"
+                      hidden="true"
+                      onchange="changeHandlerEncrypt(event) "
+                    />
+                  </div>
+                </td>
+              </tr>
+
+              <tr>
+                <td colspan="2" class="button">
+                  <button
+                    type="button"
+                    class="btn btn-primary btn-lg"
+                    onclick="encrypt()"
+                  >
+                    Encrypt
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-primary btn-lg"
+                    onclick="saveFileEncrypt()"
+                  >
+                    Save Encrypt
+                  </button>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div id="matrixEncrypt"></div>
+        <div class="card text-center result">
+          <div class="card-body">
+            <h2 class="card-title" id="result_title">Cipher Text:</h2>
+            <p class="card-text" id="cipher_text"></p>
+          </div>
+        </div>
+      </div>
+      <div class="Decrypt">
+        <div class="card input-cipher-text">
+          <div class="card-body">
+            <table>
+              <tr>
+                <td>Cipher Text</td>
+                <td>
+                  <textarea
+                    id="input_cipher_text"
+                    cols="80"
+                    rows="5"
+                  ></textarea>
+                </td>
+              </tr>
+              <tr>
+                <td>Key</td>
+                <td>
+                  <input
+                    type="number"
+                    id="key_decrypt"
+                    onkeypress="pressEnterEncrypt(event, true)"
+                  />
+                  <div class="file">
+                    <label for="file"><img src="./doc.ico" alt="" /></label>
+                    <input
+                      type="file"
+                      hidden="true"
+                      onchange="changeHandlerDecrypt(event)"
+                    />
+                  </div>
+                </td>
+              </tr>
+
+              <tr>
+                <td colspan="2" class="button">
+                  <button
+                    type="button"
+                    class="btn btn-primary btn-lg"
+                    onclick="decrypt()"
+                  >
+                    Decrypt
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-primary btn-lg"
+                    onclick="saveFileDecrypt()"
+                  >
+                    Save Decrypt
+                  </button>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div id="matrixDecrypt"></div>
+        <div class="card text-center result">
+          <div class="card-body">
+            <h2 class="card-title" id="result2_title">Plain Text:</h2>
+            <p class="card-text" id="plain_text"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="snackbar">Keyword Invalid!</div>
+    <script src="main.js"></script>
+  </body>
+</html>

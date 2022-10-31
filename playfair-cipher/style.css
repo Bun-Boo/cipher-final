@@ -1,0 +1,171 @@
+
+
+td.button {
+    text-align: center;
+} 
+
+
+
+#snackbar {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+  }
+  
+  #snackbar.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  }
+  
+  @-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;} 
+    to {bottom: 30px; opacity: 1;}
+  }
+  
+  @keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+  }
+  
+  @-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;} 
+    to {bottom: 0; opacity: 0;}
+  }
+  
+  @keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+  }
+
+  .container{
+    max-width: 100vw;
+    height: 100%;
+    display: flex;
+    align-items:flex-start;
+    justify-content: center;
+    padding: 20px;
+    gap: 20px;
+
+  }
+
+  .btn-primary{
+    margin-top: 20px;
+    padding: 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    background-color: teal;
+    color: #fff;
+  }
+
+  .btn-primary:hover{
+    background-color: brown;
+  }
+  .file{
+    float: right;
+  }
+
+  textarea{
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    outline: none;
+    border: 1px solid #ccc;
+    width: 80vh;
+    height: 20vh;
+  }
+  input{
+    outline: none;
+    margin-top: 5px;
+    width: 150px;
+    height: 30px;
+    padding: 10px;
+    line-height: 100%; 
+    font-size: 16px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+  }
+ 
+
+  .Encrypt{
+    flex: 1;
+
+  }
+  .Decrypt{
+    flex: 1;
+  }
+
+  label{
+
+    cursor: pointer;
+  }
+  .matrix{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    float: left;
+    min-width: max-content;
+
+  }
+  .matrix table{
+    width: 100%;
+    height: 100%;
+    
+  }
+  .matrix td{
+    width: 50px;
+    height: 50px;
+    text-align: center;
+  }
+ .card-text{
+  color: red;
+  font-size: 20px;
+ }
+.doubleLetter{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    float: right;
+    max-width: 350px;
+    width: 350px;
+    height: 272px;
+    overflow-y: scroll ;
+    display: none;
+}
+.doubleLetter table{
+width: 100%;
+}
+.doubleLetter td{
+  width: 25%;
+  text-align: center;
+}
+.doubleLetter tr{
+  width: 100%;
+  line-height: 2;
+}
+.btn-primary input{
+  text-align: center;
+  margin-top: 20px;
+}
+
+.button{
+  position: relative;
+}
+input[type="checkbox"]{
+  position: absolute;
+  bottom: 0;
+  right: 170px;
+}
+.button label{
+  position: absolute;
+  bottom: 5px;
+  right: 110px;
+  font-size: 20px;
+}

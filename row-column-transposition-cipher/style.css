@@ -1,0 +1,198 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+  width: 150px;
+}
+
+/* .container{
+    margin-top: 30vh;
+} */
+
+table {
+  /* border:  red solid 1px; */
+  margin: 0 auto;
+}
+
+td.button {
+  text-align: center;
+}
+
+p#cipher_text {
+  font-size: xx-large;
+}
+
+p#plain_text {
+  font-size: xx-large;
+}
+
+textarea {
+  max-height: 20vh;
+  min-height: 20vh;
+}
+
+#snackbar {
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  bottom: 30px;
+  font-size: 17px;
+}
+
+#snackbar.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+
+@keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeout {
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
+
+.container {
+  max-width: 100vw;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 20px;
+  gap: 20px;
+}
+
+.btn-primary {
+  margin-top: 20px;
+  padding: 10px;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  background-color: teal;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: brown;
+}
+.file {
+  float: right;
+}
+
+textarea {
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  outline: none;
+  border: 1px solid #ccc;
+}
+input {
+  outline: none;
+  margin-top: 5px;
+  width: 150px;
+  height: 30px;
+  padding: 10px;
+  line-height: 100%;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+.Encrypt {
+  flex: 1;
+}
+.Decrypt {
+  flex: 1;
+}
+
+label {
+  cursor: pointer;
+}
+
+#plain_text,
+#cipher_text {
+  overflow-wrap: anywhere;
+}
+
+.table-encrypt {
+  width: 100%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.table-encrypt > tr > td {
+  text-align: center;
+}
+.table-encrypt tr > td:nth-child(odd) {
+  background-color: lightgray;
+}
+.table-encrypt tr > td:nth-child(even) {
+  background-color: teal;
+  color: #fff;
+}
+.table-encrypt td {
+  width: 54px;
+  height: 14px;
+  text-align: center;
+}
+th {
+  background-color: brown;
+  color: #fff;
+}
+.table-encrypt > tr > td.th {
+  color: white;
+  background-color: brown;
+}

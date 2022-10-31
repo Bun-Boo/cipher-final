@@ -1,0 +1,193 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  margin-bottom: 30px;
+  margin-top: 70px;
+}
+
+.container-RSA {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.container {
+  width: 50%;
+  margin: 0 auto;
+  padding: 30px;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  border-radius: 10px;
+}
+
+.container-input {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+span {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+}
+
+input {
+  padding: 10px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+.arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.key-RSA {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+button.gene {
+  width: 78%;
+  float: right;
+  height: 40px;
+  margin-bottom: 20px;
+}
+
+.text-RSA {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px 0;
+}
+
+.text {
+  margin-left: 20px;
+}
+
+.text > span {
+  margin-left: 20px;
+}
+
+.text > input {
+  padding: 10px;
+  margin-left: 0px;
+  margin-bottom: 20px;
+}
+
+.output-RSA {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.encrypt-RSA {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+.encrypt-RSA > span {
+  width: 300px;
+  height: 50px;
+
+  text-align: center;
+  padding: 10px;
+}
+
+.encrypt-RSA > button {
+  width: 50%;
+  margin: 0 auto;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#input_m,
+#input_c {
+  width: 200px;
+}
+
+#snackbar {
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  bottom: 30px;
+  font-size: 17px;
+}
+
+#snackbar.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+
+@keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeout {
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
