@@ -4,9 +4,12 @@
   box-sizing: border-box;
 }
 
+/* :root{
+  --with : 
+} */
 h1 {
-  margin-bottom: 20px;
-  margin-top: 20px;
+  margin-bottom: 30px;
+  margin-top: 30px;
 }
 
 .container-RSA {
@@ -190,4 +193,48 @@ input[type="number"]::-webkit-inner-spin-button {
     bottom: 0;
     opacity: 0;
   }
+}
+.key {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* .key > span {
+  margin-left: 10px;
+} */
+.input_yb,
+.input_ya {
+  width: 190px;
+  height: 40px;
+  display: flex;
+}
+
+.left {
+  /* flex: 3;
+  background-color: red; */
+  height: 100%;
+  width: 200px;
+  height: 40px;
+  margin-bottom: 10px;
+  /* display: flex;
+  justify-content: flex-start; */
+  padding: 7px;
+  align-items: center;
+  border: solid 1px #c0c0c0;
+  line-height: 100%;
+}
+.right {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding-left: 5px;
+  border-bottom: solid 1px #c0c0c0;
+  border-top: solid 1px #c0c0c0;
+  border-right: solid 1px #c0c0c0;
+}
+
+h1 {
+  text-transform: uppercase;
 }
