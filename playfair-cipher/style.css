@@ -177,11 +177,11 @@ label {
 input[type="checkbox"] {
   position: absolute;
   bottom: 0;
-  right: 135px;
+  right: 20%;
 }
 .button label {
   position: absolute;
-  bottom: 0px;
-  right: 50px;
+  bottom: 5px;
+  right: 8%;
   font-size: 20px;
 }
