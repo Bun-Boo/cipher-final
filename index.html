@@ -62,7 +62,22 @@
         <h4>Trần Thị Thu Trang</h4>
       </div>
     </div>
+    <audio id="autoplay" autoplay>
+      <source src="music.mp3" />
+    </audio>
 
+    <script>
+      document.addEventListener(
+        "click",
+        function () {
+          document.getElementById("autoplay").play();
+        },
+        { once: true }
+      );
+      window.onload = function () {
+        // document.getElementsByClassName("thanhvien")[0].click();
+      };
+    </script>
     <script src="donut.js"></script>
   </body>
 </html>
