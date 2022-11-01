@@ -120,7 +120,7 @@ function findModOfExponential(x, e, n) {
   console.log(arr);
   let arrMod = new Map();
   for (let i = 0; i <= Math.log2(arr[arr.length - 1]); i++) {
-    if (i === 0) arrMod.set(2**i,x ** arr[i] % n);
+    if (i === 0) arrMod.set(2**i,x ** 1 % n);
     else {
       arrMod.set(2**i,arrMod.get(2**(i-1)) ** 2 % n);
     }
